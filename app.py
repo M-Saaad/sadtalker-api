@@ -4,10 +4,19 @@ from fastapi.responses import FileResponse
 from fastapi import FastAPI, File, UploadFile, Form
 from starlette.background import BackgroundTask
 from moviepy.editor import VideoFileClip, AudioFileClip
-
+from fastapi.middleware.cors import CORSMiddleware
 from api import infer
 
 app = FastAPI()
+
+# Add CORS middleware to allow all origins
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # Allow all origins
+    allow_credentials=True,
+    allow_methods=["*"],  # Allow all HTTP methods
+    allow_headers=["*"],  # Allow all HTTP headers
+)
 
 def cleanup_file(file_path: str):
     os.remove(file_path)
