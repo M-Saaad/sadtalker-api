@@ -29,7 +29,7 @@ def infer(
     result_dir: str = './results',
     pose_style: int = 0,
     batch_size: int = 2,
-    size: int = 256,
+    size: int = 512,
     expression_scale: float = 1.0,
     input_yaw: str = '',
     input_pitch: str = '',
@@ -103,6 +103,8 @@ def infer(
         device = "cuda"
     else:
         device = "cpu"
+
+    print("DEVICE:", device)
 
     # current_root_path = os.path.split(sys.argv[0])[0]
     current_root_path = ""
