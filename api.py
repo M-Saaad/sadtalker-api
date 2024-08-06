@@ -29,7 +29,7 @@ def infer(
     result_dir: str = './results',
     pose_style: int = 0,
     batch_size: int = 2,
-    size: int = 512,
+    size: int = 256,
     expression_scale: float = 1.0,
     input_yaw: str = '',
     input_pitch: str = '',
