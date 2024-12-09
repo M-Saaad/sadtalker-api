@@ -37,6 +37,6 @@ def save_video_with_watermark(video, audio, save_path, watermark=False):
             dir_path = os.path.dirname(os.path.realpath(__file__))
             watarmark_path = dir_path+"/../../docs/seelabs.png"
 
-        cmd = r'ffmpeg -y -hide_banner -loglevel error -i "%s" -i "%s" -filter_complex "[1]scale=20:-1[wm];[0][wm]overlay=(main_w-overlay_w):(main_h-overlay_h)" "%s"' % (temp_file, watarmark_path, save_path)
+        cmd = r'ffmpeg -y -hide_banner -loglevel error -i "%s" -i "%s" -filter_complex "[1]scale=50:-1[wm];[0][wm]overlay=(main_w-overlay_w)-10:(main_h-overlay_h)-10" "%s"' % (temp_file, watarmark_path, save_path)
         os.system(cmd)
         os.remove(temp_file)
